@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="output.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="pt=11 mt-14">
+    <div id="background" class="h-screen grid justify-items-center">
+        <div id="calculator" class="border-2 rounded-3xl shadow-2xl p-5 bg-slate-900 grid grid-cols-4 gap-4">
+            <div id="title" class="flex text-orange-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-math-symbols" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="12" y1="3" x2="12" y2="21"></line>
+                    <line x1="16.5" y1="4.5" x2="19.5" y2="7.5"></line>
+                    <line x1="19.5" y1="4.5" x2="16.5" y2="7.5"></line>
+                    <line x1="6" y1="4" x2="6" y2="8"></line>
+                    <line x1="4" y1="6" x2="8" y2="6"></line>
+                    <line x1="18" y1="16" x2="18.01" y2="16"></line>
+                    <line x1="18" y1="20" x2="18.01" y2="20"></line>
+                    <line x1="4" y1="18" x2="8" y2="18"></line>
+                </svg>
+                <p class="font-semibold px-2">Calculator</p>
+            </div>
+            <input id="display" type="text"
+                class="text-right border-2 w-full font-semibold text-2xl text-gray-700 rounded-lg col-span-4 h-12" value="0"
+                name="display">
+
+            <button
+                class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-orange-400 border-orange-500 text-orange-50 hover:bg-orange-300 hover:border-orange-300"
+                onclick="clearall('')">C</button>
+            <button
+                class="grid items-center justify-center border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-orange-400 border-orange-500 text-orange-50 hover:bg-orange-300 hover:border-orange-300"
+                onclick="clearLastNumber('')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-backspace w-7 h-7"
+                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <desc>Download more icon variants from https://tabler-icons.io/i/backspace</desc>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z"></path>
+                    <path d="M12 10l4 4m0 -4l-4 4"></path>
+                </svg>
+            </button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="percentage('%')">%</button>
+
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presOperator('/')">÷</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton(7)">7</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton(8)">8</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton(9)">9</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presOperator('*')">x</button>
+
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton(4)">4</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton(5)">5</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton(6)">6</button>
+            <button class="border-2 font-bold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presOperator('-')">-</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton(1)">1</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton(2)">2</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton(3)">3</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presOperator('+')">+</button>
+            <button
+                class="col-span-2 border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100"
+                onclick="presButton(0)">0</button>
+            <button class="border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-slate-200 hover:bg-slate-100 "
+                onclick="presButton('.')">.</button>
+            <button
+                class=" border-2 font-semibold py-2 text-2xl rounded-lg shadow-xl bg-orange-400 border-orange-500 text-orange-50 hover:bg-orange-300 hover:border-orange-300"
+                onclick="calculate('=')">=</button>
+        </div>
+        <div id="footer" class="mt-6 pb-7">
+            <span class="text-black px-8"> 2022 </span>
+            <span> www.bahmanyar.co </span>
+        </div>
+
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
